@@ -39,14 +39,14 @@ public class ClienteController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cliente adicionarCliente(@Valid @RequestBody Cliente cliente){
+    public Cliente adicionarCliente(@Valid @RequestBody Cliente cliente) {
         return cadastroClienteService.salvar(cliente);
     }
 
     @PutMapping("/{clientId}")
     public ResponseEntity<Cliente> atualizarCliente(@PathVariable Long clientId, @Valid @RequestBody Cliente cliente) {
 
-        if(!clienteRepository.existsById(clientId)) {
+        if (!clienteRepository.existsById(clientId)) {
             return ResponseEntity.notFound().build();
         }
 
@@ -58,7 +58,7 @@ public class ClienteController {
 
     @DeleteMapping("/{clientId}")
     public ResponseEntity<Void> deletarCliente(@PathVariable Long clientId) {
-        if(!clienteRepository.existsById(clientId)) {
+        if (!clienteRepository.existsById(clientId)) {
             return ResponseEntity.notFound().build();
         }
         cadastroClienteService.deletar(clientId);

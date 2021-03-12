@@ -13,7 +13,7 @@ public class Problema {
     private String titulo;
     private List<Campo> campos;
 
-    public static class Campo{
+    public static class Campo {
         private String campo;
         private String mensagem;
 
